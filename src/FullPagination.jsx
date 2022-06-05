@@ -62,7 +62,9 @@ const Container = styled.div`
 			}
 		}
 		& .pagination-next,
-		& .pagination-previous {
+		& .pagination-previous,
+		& .pagination-first,
+		& .pagination-last {
 			width: initial;
 			& .pagination-link {
 				padding: 0 10px;
@@ -84,14 +86,17 @@ const RectanglePagination = ({
 			linkClass='pagination-link'
 			itemClassNext='pagination-next'
 			itemClassPrev='pagination-previous'
-			activePage={activePage}
-			hideDisabled={true}
-			hideFirstLastPages={true}
-			itemsCountPerPage={1}
+			itemClassFirst='pagination-first'
+			itemClassLast='pagination-last'
 			nextPageText='Keyingi'
-			onChange={setActivePage}
-			pageRangeDisplayed={4}
+			firstPageText='Birinchi'
+			lastPageText='Oxirgi'
 			prevPageText='Oldingi'
+			hideDisabled={true}
+			itemsCountPerPage={1}
+			pageRangeDisplayed={4}
+			activePage={activePage}
+			onChange={setActivePage}
 			totalItemsCount={totalItemsCount}
 		/>
 	</Container>
