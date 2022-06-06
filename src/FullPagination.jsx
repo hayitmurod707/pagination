@@ -1,8 +1,26 @@
 import { func, number } from 'prop-types';
 import React from 'react';
-import ReactJSPagination from 'react-js-pagination';
+import Pagination from 'react-js-pagination';
 import styled from 'styled-components';
-const Container = styled.div`
+const configuration = {
+	activeLinkClass: 'pagination-active',
+	firstPageText: 'Birinchi',
+	getPageUrl: () => null,
+	hideDisabled: true,
+	innerClass: 'pagination',
+	itemClass: 'pagination-item',
+	itemClassFirst: 'pagination-first',
+	itemClassLast: 'pagination-last',
+	itemClassNext: 'pagination-next',
+	itemClassPrev: 'pagination-previous',
+	itemsCountPerPage: 1,
+	lastPageText: 'Oxirgi',
+	linkClass: 'pagination-link',
+	nextPageText: 'Keyingi',
+	pageRangeDisplayed: 3,
+	prevPageText: 'Oldingi',
+};
+const StyledElement = styled.div`
 	align-items: center;
 	display: flex;
 	justify-content: center;
@@ -14,6 +32,7 @@ const Container = styled.div`
 		padding: 0;
 		& .pagination-item {
 			border-radius: 10px;
+			cursor: pointer;
 			font-size: 15px;
 			font-weight: 600;
 			margin: 0 6px;
@@ -73,37 +92,19 @@ const Container = styled.div`
 		}
 	}
 `;
-const RectanglePagination = ({
-	activePage,
-	setActivePage,
-	totalItemsCount,
-}) => (
-	<Container>
-		<ReactJSPagination
-			activeLinkClass='pagination-active'
-			innerClass='pagination'
-			itemClass='pagination-item'
-			linkClass='pagination-link'
-			itemClassNext='pagination-next'
-			itemClassPrev='pagination-previous'
-			itemClassFirst='pagination-first'
-			itemClassLast='pagination-last'
-			nextPageText='Keyingi'
-			firstPageText='Birinchi'
-			lastPageText='Oxirgi'
-			prevPageText='Oldingi'
-			hideDisabled={true}
-			itemsCountPerPage={1}
-			pageRangeDisplayed={4}
+const Component = ({ activePage, setActivePage, totalItemsCount }) => (
+	<StyledElement>
+		<Pagination
+			{...configuration}
 			activePage={activePage}
 			onChange={setActivePage}
 			totalItemsCount={totalItemsCount}
 		/>
-	</Container>
+	</StyledElement>
 );
-RectanglePagination.propTypes = {
+Component.propTypes = {
 	activePage: number.isRequired,
 	setActivePage: func.isRequired,
 	totalItemsCount: number.isRequired,
 };
-export default RectanglePagination;
+export default Component;
