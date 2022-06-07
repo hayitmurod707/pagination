@@ -96,6 +96,10 @@ const Component = ({ totalItemsCount, setActivePage, activePage }) => (
 		/>
 	</StyledElement>
 );
+Component.defaultProps = {
+	activePage: 1,
+	totalItemsCount: 1,
+};
 Component.propTypes = {
 	activePage: number.isRequired,
 	setActivePage: func.isRequired,
