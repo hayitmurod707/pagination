@@ -1,20 +1,16 @@
 import { func, number } from 'prop-types';
-import React from 'react';
 import Pagination from 'react-js-pagination';
 import styled from 'styled-components';
-const configuration = {
+const defaultOptions = {
 	activeLinkClass: 'pagination-active',
-	firstPageText: 'Birinchi',
 	getPageUrl: () => null,
 	hideDisabled: true,
+	hideFirstLastPages: true,
 	innerClass: 'pagination',
 	itemClass: 'pagination-item',
-	itemClassFirst: 'pagination-first',
-	itemClassLast: 'pagination-last',
 	itemClassNext: 'pagination-next',
 	itemClassPrev: 'pagination-previous',
 	itemsCountPerPage: 1,
-	lastPageText: 'Oxirgi',
 	linkClass: 'pagination-link',
 	nextPageText: 'Keyingi',
 	pageRangeDisplayed: 3,
@@ -81,9 +77,7 @@ const StyledElement = styled.div`
 			}
 		}
 		& .pagination-next,
-		& .pagination-previous,
-		& .pagination-first,
-		& .pagination-last {
+		& .pagination-previous {
 			width: initial;
 			& .pagination-link {
 				padding: 0 10px;
@@ -95,7 +89,7 @@ const StyledElement = styled.div`
 const Component = ({ activePage, setActivePage, totalItemsCount }) => (
 	<StyledElement>
 		<Pagination
-			{...configuration}
+			{...defaultOptions}
 			activePage={activePage}
 			onChange={setActivePage}
 			totalItemsCount={totalItemsCount}

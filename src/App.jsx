@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
-import CirclePagination from './CirclePagination';
-import FullPagination from './FullPagination';
-import Pagination from './Pagination';
-import RectanglePagination from './RectanglePagination';
+import { useState } from 'react';
+import { Circle, Default, Full, Rectangle } from './Pagination';
 const App = () => {
 	const [activePage, setActivePage] = useState(1);
 	return (
 		<>
-			<RectanglePagination
+			<Rectangle
 				activePage={activePage}
 				setActivePage={setActivePage}
 				totalItemsCount={20}
@@ -15,7 +12,7 @@ const App = () => {
 			<br />
 			<br />
 			<br />
-			<CirclePagination
+			<Circle
 				activePage={activePage}
 				setActivePage={setActivePage}
 				totalItemsCount={20}
@@ -23,7 +20,7 @@ const App = () => {
 			<br />
 			<br />
 			<br />
-			<Pagination
+			<Default
 				activePage={activePage}
 				setActivePage={setActivePage}
 				totalItemsCount={20}
@@ -31,7 +28,7 @@ const App = () => {
 			<br />
 			<br />
 			<br />
-			<FullPagination
+			<Full
 				activePage={activePage}
 				setActivePage={setActivePage}
 				totalItemsCount={20}

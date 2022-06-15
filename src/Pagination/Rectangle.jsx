@@ -1,8 +1,7 @@
 import { func, number } from 'prop-types';
-import React from 'react';
 import Pagination from 'react-js-pagination';
 import styled from 'styled-components';
-const configuration = {
+const defaultOptions = {
 	activeLinkClass: 'pagination-active',
 	getPageUrl: () => null,
 	hideDisabled: true,
@@ -88,7 +87,7 @@ const StyledElement = styled.div`
 const Component = ({ activePage, setActivePage, totalItemsCount }) => (
 	<StyledElement>
 		<Pagination
-			{...configuration}
+			{...defaultOptions}
 			activePage={activePage}
 			onChange={setActivePage}
 			totalItemsCount={totalItemsCount}
