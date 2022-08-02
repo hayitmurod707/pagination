@@ -1,36 +1,44 @@
 import { useState } from 'react';
-import { Circle, Default, Full, Rectangle } from './Pagination';
+import ReactJSPagination from './ReactJSPagination';
 const App = () => {
-	const [activePage, setActivePage] = useState(1);
+	const [activePage, setActivePage] = useState(2);
 	return (
 		<>
-			<Rectangle
+			<h1>Pagination component with react-js-pagination</h1>
+			<br />
+			<br />
+			<br />
+			<ReactJSPagination
 				activePage={activePage}
-				setActivePage={setActivePage}
+				onChange={setActivePage}
 				totalItemsCount={20}
 			/>
 			<br />
 			<br />
 			<br />
-			<Circle
+			<ReactJSPagination
 				activePage={activePage}
-				setActivePage={setActivePage}
+				hideFirstLastPages={false}
+				onChange={setActivePage}
 				totalItemsCount={20}
 			/>
 			<br />
 			<br />
 			<br />
-			<Default
+			<ReactJSPagination
 				activePage={activePage}
-				setActivePage={setActivePage}
+				onChange={setActivePage}
+				rounded={true}
 				totalItemsCount={20}
 			/>
 			<br />
 			<br />
 			<br />
-			<Full
+			<ReactJSPagination
 				activePage={activePage}
-				setActivePage={setActivePage}
+				hideFirstLastPages={false}
+				onChange={setActivePage}
+				rounded={true}
 				totalItemsCount={20}
 			/>
 		</>
