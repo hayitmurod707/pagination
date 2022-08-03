@@ -90,6 +90,44 @@ const StyledElement = styled.div`
 	}
 `;
 const defaultOptions = {
+	// activeClassName: string
+	// activeLinkClassName: string
+	// ariaLabelBuilder: function
+	// breakClassName: string,
+	// breakLabel: React Node
+	// breakLinkClassName: string
+	// className: string
+	// containerClassName: string
+	// disableInitialCallback: boolean
+	// disabledClassName: string
+	// disabledLinkClassName: string
+	// eventListener: string
+	// extraAriaContext: string
+	// forcePage: number
+	// hrefAllControls: boolean
+	// hrefBuilder: function
+	// initialPage: number
+	// marginPagesDisplayed: number
+	// nextClassName: string
+	// nextLabel: React Node
+	// nextLinkClassName: string
+	// nextPageRel: string
+	// nextRel: string
+	// onClick: function
+	// onPageActive: function
+	// onPageChange: function
+	// pageClassName: string
+	// pageCount: number required
+	// pageLabelBuilder: string
+	// pageLinkClassName: string
+	// pageRangeDisplayed: number
+	// prevPageRel: string
+	// prevRel: string
+	// previousClassName: string
+	// previousLabel: React Node
+	// previousLinkClassName: string
+	// renderOnZeroPageCount: function
+	// selectedPageRel: string
 	activeClassName: 'active',
 	breakLabel: null,
 	marginPagesDisplayed: 0,
@@ -109,14 +147,14 @@ const defaultOptions = {
 		</svg>
 	),
 };
-const ReactPaginate = props => (
+const ReactPaginate = ({ rounded, ...rest }) => (
 	<StyledElement>
 		<Pagination
 			{...defaultOptions}
-			{...props}
-			nextClassName={props?.rounded ? 'rounded' : 'square'}
-			pageClassName={props?.rounded ? 'rounded' : 'square'}
-			previousClassName={props?.rounded ? 'rounded' : 'square'}
+			{...rest}
+			nextClassName={rounded ? 'rounded' : 'square'}
+			pageClassName={rounded ? 'rounded' : 'square'}
+			previousClassName={rounded ? 'rounded' : 'square'}
 		/>
 	</StyledElement>
 );
