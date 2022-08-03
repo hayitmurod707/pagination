@@ -1,45 +1,38 @@
 import { useState } from 'react';
+import RCPagination from './RCPagination';
 import ReactJSPagination from './ReactJSPagination';
+import ReactPaginate from './ReactPaginate';
+// text color #6e7892
+// current color #0000ff
+// active text color #ffffff
 const App = () => {
 	const [activePage, setActivePage] = useState(2);
+	const totalCount = 20;
 	return (
 		<>
-			<h1>Pagination component with react-js-pagination</h1>
-			<br />
-			<br />
+			<h1 style={{ textAlign: 'center' }}>Pagination component</h1>
+			<h2 style={{ textAlign: 'center' }}>react-js-pagination</h2>
 			<br />
 			<ReactJSPagination
 				activePage={activePage}
 				onChange={setActivePage}
-				totalItemsCount={20}
+				totalItemsCount={totalCount}
 			/>
 			<br />
+			<h2 style={{ textAlign: 'center' }}>rc-pagination</h2>
 			<br />
-			<br />
-			<ReactJSPagination
-				activePage={activePage}
-				hideFirstLastPages={false}
+			<RCPagination
+				current={activePage}
 				onChange={setActivePage}
-				totalItemsCount={20}
+				total={totalCount}
 			/>
 			<br />
+			<h2 style={{ textAlign: 'center' }}>react-paginate</h2>
 			<br />
-			<br />
-			<ReactJSPagination
-				activePage={activePage}
-				onChange={setActivePage}
-				rounded={true}
-				totalItemsCount={20}
-			/>
-			<br />
-			<br />
-			<br />
-			<ReactJSPagination
-				activePage={activePage}
-				hideFirstLastPages={false}
-				onChange={setActivePage}
-				rounded={true}
-				totalItemsCount={20}
+			<ReactPaginate
+				forcePage={activePage - 1}
+				onPageChange={({ selected }) => setActivePage(selected + 1)}
+				pageCount={totalCount}
 			/>
 		</>
 	);
